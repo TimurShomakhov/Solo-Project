@@ -3,20 +3,20 @@ function playGame(playerChoice) {
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
     const resultElement = document.getElementById('result');
-    resultElement.textContent = '';
     resultElement.classList.remove('visible'); // Reset visibility
+    resultElement.style.opacity = '1'; // Ensure it is visible immediately
 
-    // Create a countdown timer
+    // Countdown logic
     let countdown = 3;
     const countdownInterval = setInterval(() => {
         resultElement.textContent = countdown; // Display the countdown number
         countdown--;
+
         if (countdown < 0) {
             clearInterval(countdownInterval);
 
             // Determine the result after the countdown
             let result = '';
-
             if (playerChoice === computerChoice) {
                 result = `It's a tie! You both chose ${playerChoice}.`;
             } else if (
@@ -30,7 +30,7 @@ function playGame(playerChoice) {
             }
 
             resultElement.textContent = result;
-            resultElement.classList.add('visible'); // Trigger visibility
+            resultElement.classList.add('visible'); // Trigger fade-in animation
         }
     }, 1000); // Update every second
 }
