@@ -18,10 +18,20 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        .choices button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.1);
         }
         #result {
             font-size: 20px;
             margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        #result.visible {
+            opacity: 1;
         }
     </style>
 </head>
@@ -32,7 +42,7 @@
         <button onclick="playGame('paper')">Paper</button>
         <button onclick="playGame('scissors')">Scissors</button>
     </div>
-    <div id="result">Chosse One of Three Options</div>
+    <div id="result">Make your choice!</div>
     <script src="script.js"></script>
 </body>
 </html>
