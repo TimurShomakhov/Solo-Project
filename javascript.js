@@ -3,13 +3,13 @@ function playGame(playerChoice) {
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
     const resultElement = document.getElementById('result');
-    resultElement.textContent = 'Counting down...';
+    resultElement.textContent = '';
     resultElement.classList.remove('visible'); // Reset visibility
 
     // Create a countdown timer
     let countdown = 3;
     const countdownInterval = setInterval(() => {
-        resultElement.textContent = `Result in ${countdown}...`;
+        resultElement.textContent = countdown; // Display the countdown number
         countdown--;
         if (countdown < 0) {
             clearInterval(countdownInterval);
